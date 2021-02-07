@@ -14,7 +14,7 @@ services:
        - main-network
     depends_on:
       - influxdb
-    restart: on-failure
+    restart: unless-stopped
 
   # InfluxDB database container
   influxdb:
@@ -36,7 +36,7 @@ services:
       - INFLUXDB_ADMIN_ENABLED=true
       - INFLUXDB_ADMIN_USER=admin
       - INFLUXDB_ADMIN_PASSWORD=password
-    restart: on-failure
+    restart: unless-stopped
   
   # NGINX Reverse proxy container
   nginx:
@@ -55,7 +55,7 @@ services:
     depends_on:
        - grafana
        - influxdb
-    restart: on-failure
+    restart: unless-stopped
 
   portainer:
       container_name: portainer
@@ -69,7 +69,7 @@ services:
        - main-network
       depends_on:
         - nginx
-      restart: on-failure
+      restart: unless-stopped
 
 # The shared container network - Named for consistency
 networks: 

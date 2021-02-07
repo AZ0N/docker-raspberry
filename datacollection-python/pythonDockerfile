@@ -1,3 +1,3 @@
 FROM python:3
 
-RUN pip3 install influxdb psutil
+RUN pip3 install influxdb psutil speedtest-cli
