@@ -1,0 +1,3 @@
+/data/grafanaData/**
+/data/influxdbData/**
+/data/portainerData/**
