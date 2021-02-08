@@ -4,6 +4,8 @@ import datetime
 import psutil
 from influxdb import InfluxDBClient
 
+psutil.PROCFS_PATH = '/host/proc'
+
 # influx configuration - edit these
 ifuser = "grafana"
 ifpass = "password"
