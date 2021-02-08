@@ -8,7 +8,7 @@ from influxdb import InfluxDBClient
 ifuser = "grafana"
 ifpass = "password"
 ifdb   = "maindb"
-ifhost = "influxdb"
+ifhost = "127.0.0.1"
 ifport = 8086
 measurement_name = "speedtest"
 

@@ -4,13 +4,11 @@ import datetime
 import psutil
 from influxdb import InfluxDBClient
 
-psutil.PROCFS_PATH = '/host/proc'
-
 # influx configuration - edit these
 ifuser = "grafana"
 ifpass = "password"
 ifdb   = "maindb"
-ifhost = "influxdb"
+ifhost = "127.0.0.1"
 ifport = 8086
 measurement_name = "system"
 
