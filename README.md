@@ -35,6 +35,17 @@ We will use PiVPN to install a OpenVPN server on the Pi. As decribed on the [PiV
 curl -L https://install.pivpn.io | bash
 ```
 This starts the installation. Here a dynamic DNS entry can be configured for accessing the VPN server. For more information about PiVPN, [see their documentation](https://docs.pivpn.io/). For accessing outside the local network, the chosen port needs to be forwared to the Raspberry Pi in the local routers configuration.
+
+A user can be created with:
+```bash
+pivpn -a
+```
+Fill the required information, and a ``NAME.ovpn`` file will be created. Copy the file to the device you want to connect to the VPN, and use a OpenVPN client.
+
+Link to OpenVPN clients:
+- [Windows](https://openvpn.net/community-downloads/) 
+- [Android](https://play.google.com/store/apps/details?id=net.openvpn.openvpn)
+- [iOS](https://apps.apple.com/us/app/openvpn-connect/id590379981)
 ## Pihole
 Pihole can be installed with the command:
 ```bash
@@ -65,7 +76,7 @@ Restart the lighttpd service:
 sudo service lighttpd restart
 ```
 ## Jellyfin
-Jellyfin is an open-source mediastreaming server. To isntall Jellyfin, use the following command:
+Jellyfin is an open-source mediastreaming server. To isntall Jellyfin, use the following commands:
 ```
 sudo apt install apt-transport-https
 wget -O - https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo apt-key add -
@@ -85,7 +96,7 @@ sudo systemctl restart jellyfin
 ```
 If 4K video-playback is needed, the GPU-memory needs to be atleast 320mb. This can be changed in ``/boot/config.txt``.
 
-Add ``gpu_mem=amount`` to the bottom of the file. The system needs to be rebooted for the changes to take effect.
+Add ``gpu_mem=amount_in_mb`` to the bottom of the file. The system needs to be rebooted for the changes to take effect.
 
 The Jellyfin web-interface can be located at ``http://raspberrypi:8096``. When accessing the interface for the first time, the interface will take you through some simple configuration. Her the credentialts for loggin into the webinterface is set.
 
@@ -138,3 +149,15 @@ Alternatively a bash script can be used instead of manually remembering the MAC-
 wakeonlan 00:11:22:33:44:55:66
 ```
 ## Docker setup
+There are a couple of steps to set up the docker portion of the server:
+- [Installing Docker and Docker-compose](#installing-docker-and-docker-compose)
+- [Configuring containers](#configuring-containers)
+- [Starting the containers](#starting-the-containers)
+- [Datacollection](#datacollection)
+### Installing Docker and Docker-compose
+
+### Configuring containers
+
+### Starting the containers
+
+### Datacollection
