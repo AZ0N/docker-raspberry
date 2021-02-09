@@ -65,6 +65,33 @@ Restart the lighttpd service:
 sudo service lighttpd restart
 ```
 ## Jellyfin
+Jellyfin is an open-source mediastreaming server. To isntall Jellyfin, use the following command:
+```
+sudo apt install apt-transport-https
+wget -O - https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo apt-key add -
+echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+sudo apt update
+sudo apt install jellyfin
+```
+also shown on the [Jellyfin webiste](https://jellyfin.org/downloads/).
+
+After installation, the Jellyfin user needs to be added to the video group:
+```bash
+sudo usermod +aG video jellyfin
+```
+The Jellyfin service need to restart:
+```bash
+sudo systemctl restart jellyfin
+```
+If 4K video-playback is needed, the GPU-memory needs to be atleast 320mb. This can be changed in ``/boot/config.txt``.
+
+Add ``gpu_mem=amount`` to the bottom of the file. The system needs to be rebooted for the changes to take effect.
+
+The Jellyfin web-interface can be located at ``http://raspberrypi:8096``. When accessing the interface for the first time, the interface will take you through some simple configuration. Her the credentialts for loggin into the webinterface is set.
+
+For compability with the NGINX reverse-proxy subdirectory the ``base-url`` of the Jellyfin configuration need to be changed. The setting can be located in the web-interface by navigating to *Dashboard → Networking → Server Adress Settings* and setting the *Base URL* field to *jellyfin* to enable accessing the interface from the ``/jellyfin`` subdirectory.
+
+If you are using a Raspberry Pi 4B, hardware acceleration can be enabled *Dashboard → Playback* and choosing *OpenMAX OMX* under hardware acceleration.
 ## Samba
 Samba can be installed using apt:
 ```bash
