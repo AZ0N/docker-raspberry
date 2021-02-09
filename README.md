@@ -20,6 +20,8 @@ The following services runs inside docker containers:
 ![Grafana Interface](https://i.imgur.com/PIl3FM9.png)
 
 # Installation
+I have used Raspberry Pi OS Lite, but the project can be applied to other distributions.
+
 Refer to the section of each service installation:
 - [OpenVPN](#openvpn)
 - [Pihole](#pihole)
@@ -32,4 +34,17 @@ Refer to the section of each service installation:
 ## Jellyfin
 ## SAMBA
 ## wakeonlan
+The ``wakeonlan`` package can be installed using ``apt``:
+```bash
+sudo apt install wakeonlan
+```
+The package can be used:
+```bash
+wakeonlan 00:11:22:33:44:55:66
+```
+Alternatively a bash script can be used instead of manually remembering the MAC-adress:
+```sh
+#!\bin\bash
+wakeonlan 00:11:22:33:44:55:66
+```
 ## Docker setup
