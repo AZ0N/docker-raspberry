@@ -33,8 +33,36 @@ Refer to the section of each service installation:
 ## Pihole
 ## Jellyfin
 ## SAMBA
+Samba can be installed using apt:
+```bash
+sudo apt-get install samba samba-common-bin
+```
+Thereafter the configuration file can be edited using nano:
+```bash
+sudo nano /etc/samba/smb.conf
+```
+At the bottom the configuration file add the following:
+```
+[nameofshare]
+path = /path/to/shared/directory
+writeable=Yes
+create mask=0777
+directory mask=0777
+public=no
+```
+Substitute the name of path to the desired shared folder.
+The share can be accessed at ``//raspberrypi/nameofshare`` or at the ip-adress of the Pi.
+
+Before accessing the share, a Samba user needs to be created. Choose a password for the user:
+```bash
+sudo smbpasswd -a pi
+```
+Finally restart the Samba service:
+```bash
+sudo systemctl restart smbd
+```
 ## wakeonlan
-The ``wakeonlan`` package can be installed using ``apt``:
+The ``wakeonlan`` package can be installed using apt:
 ```bash
 sudo apt install wakeonlan
 ```
