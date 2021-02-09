@@ -30,6 +30,11 @@ Refer to the section of each service installation:
 - [wakeonlan](#wakeonlan)
 - [Docker setup](#docker-setup)
 ## OpenVPN
+We will use PiVPN to install a OpenVPN server on the Pi. As decribed on the [PiVVPN Website](https://www.pivpn.io/):
+```bash
+curl -L https://install.pivpn.io | bash
+```
+This starts the installation. Here a dynamic DNS entry can be configured for accessing the VPN server. For more information about PiVPN, [see their documentation](https://docs.pivpn.io/).
 ## Pihole
 ## Jellyfin
 ## SAMBA
