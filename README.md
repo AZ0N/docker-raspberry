@@ -38,10 +38,12 @@ The ``wakeonlan`` package can be installed using ``apt``:
 ```bash
 sudo apt install wakeonlan
 ```
-The package can be used:
+Usage:
 ```bash
 wakeonlan 00:11:22:33:44:55:66
 ```
+where 00:11:22:33:44:55:66 is the MAC-adress of the device to wake.
+
 Alternatively a bash script can be used instead of manually remembering the MAC-adress:
 ```sh
 #!\bin\bash
