@@ -21,13 +21,13 @@ The following services runs inside docker containers:
 
 # Installation
 Refer to the section of each service installation:
-- [OpenVPN](##openvpn)
-- [Pihole](##pihole)
-- [Jellyfin](##jellyfin)
-- [Samba](##samba)
-- [wakeonlan](##wakeonlan)
-- [Docker setup](##docker-setup)
-## Openvpn
+- [OpenVPN](#openvpn)
+- [Pihole](#pihole)
+- [Jellyfin](#jellyfin)
+- [Samba](#samba)
+- [wakeonlan](#wakeonlan)
+- [Docker setup](#docker-setup)
+## OpenVPN
 ## Pihole
 ## Jellyfin
 ## SAMBA
